@@ -3,9 +3,14 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { dockApps } from "#constants";
 import { Tooltip } from "react-tooltip";
+import { openWindow,closeWindow,focusWindow } from "#RTK/windowSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Dock = () => {
   const dockRef = useRef(null);
+  const dispatch = useDispatch();
+  const windows = useSelector((state) => state?.windows?.windows);
+
   useGSAP(() => {
     const dock = dockRef.current;
     if (!dock) return () => {};
@@ -54,7 +59,23 @@ const Dock = () => {
     };
   }, []);
 
-  const toggleApp = (app) => {};
+  const toggleApp = (app) => {
+    if (!app?.canOpen) return;
+
+    const win = windows[app.id];
+
+    if(!win){
+      console.log(`Window not found for: ${app?.id}`);
+      return;
+    }
+
+    if(win?.isOpen){
+      dispatch(closeWindow({windowKey:app?.id}))
+    }else{
+      dispatch(openWindow({windowKey:app?.id}))
+    }
+  };
+  
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
