@@ -11,13 +11,15 @@ const Navbar = () => {
         <ul>
           {navLinks.map(({ id, name }) => (
             <li key={id}>
-              <p>{name}</p>
+              <p className="no-underline hover:no-underline decoration-transparent hover:decoration-transparent">
+                {name}
+              </p>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* NavIcons₹ */}
+      {/* NavIcons */}
       <div>
         <ul>
           {navIcons?.map(({ id, img }) => (
