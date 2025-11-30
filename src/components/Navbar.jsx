@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
+import { openWindow } from "#RTK/windowSlice";
 
 const Navbar = () => {
   return (
@@ -9,8 +10,8 @@ const Navbar = () => {
         <img src="/images/logo.svg" alt="logo" />
         <p className="font-bold">Narendra's Portfolio</p>
         <ul>
-          {navLinks.map(({ id, name }) => (
-            <li key={id}>
+          {navLinks.map(({ id, name, type }) => (
+            <li key={id} onClick={() => openWindow({ windowKey: type })}>
               <p className="no-underline hover:no-underline decoration-transparent hover:decoration-transparent">
                 {name}
               </p>
