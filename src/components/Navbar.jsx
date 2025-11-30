@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 const Navbar = () => {
 
   const dispatch = useDispatch();
-
   return (
     <nav>
       {/* NavLinks */}

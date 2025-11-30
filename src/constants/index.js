@@ -20,18 +20,22 @@ const navIcons = [
   {
     id: 1,
     img: "/icons/wifi.svg",
+    imgLight: "/icons/wifiWhite.svg",
   },
   {
     id: 2,
     img: "/icons/search.svg",
+    imgLight: "/icons/searchWhite.svg",
   },
   {
     id: 3,
     img: "/icons/user.svg",
+    imgLight: "/icons/userWhite.svg",
   },
   {
     id: 4,
     img: "/icons/mode.svg",
+    imgLight: "/icons/modeWhite.svg",
   },
 ];
 
@@ -67,10 +71,10 @@ const dockApps = [
     canOpen: true,
   },
   {
-    id: "trash",  
+    id: "trash",
     name: "Archive", // was "Trash"
     icon: "trash.png",
-    canOpen: false,
+    canOpen: true,
   },
 ];
 
@@ -189,18 +193,22 @@ const gallery = [
   {
     id: 1,
     img: "/images/gal1.png",
+    name: "Image",
   },
   {
     id: 2,
     img: "/images/gal2.png",
+    name: "Image",
   },
   {
     id: 3,
     img: "/images/gal3.png",
+    name: "Image",
   },
   {
     id: 4,
     img: "/images/gal4.png",
+    name: "Image",
   },
 ];
 
