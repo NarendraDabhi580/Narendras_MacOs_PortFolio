@@ -1,8 +1,12 @@
 import dayjs from "dayjs";
 import { navIcons, navLinks } from "#constants";
 import { openWindow } from "#RTK/windowSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+
+  const dispatch = useDispatch();
+
   return (
     <nav>
       {/* NavLinks */}
@@ -11,7 +15,7 @@ const Navbar = () => {
         <p className="font-bold">Narendra's Portfolio</p>
         <ul>
           {navLinks.map(({ id, name, type }) => (
-            <li key={id} onClick={() => openWindow({ windowKey: type })}>
+            <li key={id} onClick={() => dispatch(openWindow({ windowKey: type }))}>
               <p className="no-underline hover:no-underline decoration-transparent hover:decoration-transparent">
                 {name}
               </p>
