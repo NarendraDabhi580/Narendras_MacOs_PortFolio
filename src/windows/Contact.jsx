@@ -18,18 +18,18 @@ const Contact = () => {
         />
 
         <h3>Let's Connect</h3>
-        <p>Got an idea? A bug to squash? Or just wanna talk tech? I'm in.</p>
+        <p className="dark:text-white">Got an idea? A bug to squash? Or just wanna talk tech? I'm in.</p>
         <div className="flex items-center gap-6">
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-white">
             <p className="font-semibold">Email:</p>
             <p className="ms-2">nandudabhi580@gmail.com</p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center dark:text-white">
             <p className="font-semibold">Phone:</p>
             <p className="ms-2">+91 7990333121</p>
           </div>
         </div>
-
+    
         <ul>
           {socials?.map(({ id, text, icon, bg, link }) => (
             <li key={id} style={{ backgroundColor: bg }}>

@@ -1,9 +1,10 @@
 import gsap from "gsap";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { dockApps } from "#constants";
+import { dockApps, locations } from "#constants";
 import { Tooltip } from "react-tooltip";
-import { openWindow,closeWindow,focusWindow } from "#RTK/windowSlice";
+import { openWindow, closeWindow, focusWindow } from "#RTK/windowSlice";
+import { setActiveLocation } from "#RTK/locationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Dock = () => {
@@ -62,20 +63,28 @@ const Dock = () => {
   const toggleApp = (app) => {
     if (!app?.canOpen) return;
 
+    // Special handling for trash: open Finder and focus it with trash active
+    if (app?.id === "trash") {
+      dispatch(setActiveLocation({ location: locations?.trash }));
+      dispatch(openWindow({ windowKey: "finder" }));
+      dispatch(focusWindow({ windowKey: "finder" }));
+      return;
+    }
+
     const win = windows[app.id];
 
-    if(!win){
+    if (!win) {
       console.log(`Window not found for: ${app?.id}`);
       return;
     }
 
-    if(win?.isOpen){
-      dispatch(closeWindow({windowKey:app?.id}))
-    }else{
-      dispatch(openWindow({windowKey:app?.id}))
+    if (win?.isOpen) {
+      dispatch(closeWindow({ windowKey: app?.id }));
+    } else {
+      dispatch(openWindow({ windowKey: app?.id }));
     }
   };
-  
+
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
