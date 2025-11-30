@@ -3,13 +3,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { useLayoutEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const WindowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
     const windows = useSelector((state) => state?.windows?.windows);
     const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef(null);
+    const dispatch = useDispatch();
 
     useGSAP(() => {
       const element = ref.current;
@@ -33,7 +34,7 @@ const WindowWrapper = (Component, windowKey) => {
       if (!element) return;
 
       const [instance]=Draggable.create(element, {
-        onPress: () => focusWindow({ windowKey }),
+        onPress: () => dispatch(focusWindow({ windowKey })),
       });
 
       return () =>  instance.kill();
