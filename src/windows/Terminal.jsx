@@ -3,7 +3,7 @@ import { techStack } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
 import { Check, Flag } from "lucide-react";
 
-const Terminal = ({ target }) => {
+const Terminal = () => {
   return (
     <>
       <div id="window-header">
