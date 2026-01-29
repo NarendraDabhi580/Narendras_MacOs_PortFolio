@@ -12,13 +12,15 @@ const Contact = () => {
 
       <div className="p-5 space-y-5">
         <img
-          src="/images/adrian.jpg"
-          alt="adrian"
+          src="/images/narendra3.jpeg"
+          alt="Narendra Dabhi"
           className="w-20 rounded-full"
         />
 
         <h3>Let's Connect</h3>
-        <p className="dark:text-white">Got an idea? A bug to squash? Or just wanna talk tech? I'm in.</p>
+        <p className="dark:text-white">
+          Got an idea? A bug to squash? Or just wanna talk tech? I'm in.
+        </p>
         <div className="flex items-center gap-6">
           <div className="flex items-center dark:text-white">
             <p className="font-semibold">Email:</p>
@@ -29,7 +31,7 @@ const Contact = () => {
             <p className="ms-2">+91 7990333121</p>
           </div>
         </div>
-    
+
         <ul>
           {socials?.map(({ id, text, icon, bg, link }) => (
             <li key={id} style={{ backgroundColor: bg }}>
